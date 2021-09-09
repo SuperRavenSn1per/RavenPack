@@ -4,9 +4,13 @@ function centerWrite(text, color, highlight, yOffset)
   local currentTxt = term.getTextColor()
   local currentBg = term.getBackgroundColor()
   
-  term.setCursorPos(math.floor(w / 2 - string.len(text) / 2), math.floor(h / 2) - yOffset or 0)
-  term.setTextColor(color or currentTxt)
-  term.setBackgroundColor(highlight or currentBg)
+  if color == nil then color = currentTxt end
+  if highlight == nil then highlight = currentBg end
+  if yOffset == nil then yOffset = 0 end
+  
+  term.setCursorPos(math.floor(w / 2 - string.len(text) / 2), math.floor(h / 2) - yOffset)
+  term.setTextColor(color)
+  term.setBackgroundColor(highlight)
   write(text)
   term.setTextColor(currentTxt)
   term.setBackgroundColor(currentBg)
