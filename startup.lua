@@ -1,0 +1,7 @@
+term.setTextColor(colors.yellow)
+term.clear()
+term.setCursorPos(1,1)
+print("CraftOS 1.8")
+term.setTextColor(colors.white)
+print("RavenPack Utils. by SuperRavenSn1per")
+shell.run("rpu_loader.lua")
