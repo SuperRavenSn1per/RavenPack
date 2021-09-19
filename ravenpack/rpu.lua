@@ -42,3 +42,15 @@ function centerWriteTop(text, color, highlight)
   term.setTextColor(currentTxt)
   term.setBackgroundColor(currentBg)
 end
+
+function slowWrite(text,speed)
+  if speed == nil then
+    speed = 0.5
+  end
+  chars = getChars(text)
+  for i,char in pairs(chars) do
+    write(char)
+    sleep(tonumber(speed))
+  end
+end
+
