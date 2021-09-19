@@ -1,8 +1,8 @@
 function getChars(str)
-  chars = {}
+  local chars = {}
   
   for i = 1,string.len(str) do
-    currentChar = string.sub(str, i, i)
+    local currentChar = string.sub(str, i, i)
     table.insert(chars, currentChar)
   end
   return chars
@@ -47,7 +47,7 @@ function slowWrite(text,speed)
   if speed == nil then
     speed = 0.5
   end
-  chars = getChars(text)
+  local chars = getChars(text)
   for i,char in pairs(chars) do
     write(char)
     sleep(tonumber(speed))
