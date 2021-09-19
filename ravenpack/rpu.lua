@@ -1,3 +1,13 @@
+function getChars(str)
+  chars = {}
+  
+  for i = 1,string.len(str) do
+    currentChar = string.sub(str, i, i)
+    table.insert(chars, currentChar)
+  end
+  return chars
+end
+
 function centerWrite(text, color, highlight, yOffset)
   local w,h = term.getSize()
   
