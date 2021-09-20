@@ -8,10 +8,10 @@ function getChars(str)
   return chars
 end
 
-function moveCursor(x, y)
-  local w,h = term.getSize()
+function moveCursor(x1, y1)
+  local x,y = term.getCursorPos()
   
-  term.setCursorPos(w + x, h + y)
+  term.setCursorPos(x + x1, y + y1)
 end
 
 function centerWrite(text, color, highlight, yOffset)
@@ -61,11 +61,11 @@ function slowWrite(text,speed)
 end
 
 function glitchWrite(text, speed)
-  local glitchChars = {"!","@","#","$","%","^","&","*","(",")","+","=","/","\"}
+  local glitchChars = {"!","@","#","$","%","^","&","*","(",")","+","=","/"}
   local chars = getChars(text)
   
   for i,char in pairs(chars) do
-      local ran = math.random(1, string.len(text)
+      local ran = math.random(1, string.len(text))
       write(glitchChars[ran])
       moveCursor(-1,0)
       sleep(0.1)
