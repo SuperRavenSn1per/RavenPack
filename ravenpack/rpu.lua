@@ -50,9 +50,7 @@ function centerWriteTop(text, color, highlight)
 end
 
 function slowWrite(text,speed)
-  if speed == nil then
-    speed = 0.5
-  end
+  if speed == nil then speed = 0.5 end
   local chars = getChars(text)
   for i,char in pairs(chars) do
     write(char)
@@ -64,11 +62,13 @@ function glitchWrite(text, speed)
   local glitchChars = {"!","@","#","$","%","^","&","*","(",")","+","=","/"}
   local chars = getChars(text)
   
+  if speed == nil then speed = 0.1 end
+  
   for i,char in pairs(chars) do
       local ran = math.random(1, string.len(text))
       write(glitchChars[ran])
       moveCursor(-1,0)
-      sleep(0.1)
+      sleep(speed)
       write(char)
   end
 end
