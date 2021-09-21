@@ -65,7 +65,7 @@ function glitchWrite(text, speed)
   if speed == nil then speed = 0.1 end
   
   for i,char in pairs(chars) do
-      local ran = math.random(1, string.len(text))
+      local ran = math.random(1, #glitchChars)
       write(glitchChars[ran])
       moveCursor(-1,0)
       sleep(speed)
