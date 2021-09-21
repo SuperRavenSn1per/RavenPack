@@ -58,6 +58,16 @@ function slowWrite(text,speed)
   end
 end
 
+function slowPrint(text,speed)
+  if speed == nil then speed = 0.5 end
+  local chars = getChars(text)
+  for i,char in pairs(chars) do
+    write(char)
+    sleep(tonumber(speed))
+  end
+  print("")
+end
+
 function glitchWrite(text, speed)
   local glitchChars = {"!","@","#","$","%","^","&","*","(",")","+","=","/"}
   local chars = getChars(text)
@@ -71,5 +81,21 @@ function glitchWrite(text, speed)
       sleep(speed)
       write(char)
   end
+end
+
+function glitchPrint(text, speed)
+  local glitchChars = {"!","@","#","$","%","^","&","*","(",")","+","=","/"}
+  local chars = getChars(text)
+  
+  if speed == nil then speed = 0.1 end
+  
+  for i,char in pairs(chars) do
+      local ran = math.random(1, #glitchChars)
+      write(glitchChars[ran])
+      moveCursor(-1,0)
+      sleep(speed)
+      write(char)
+  end
+  print("")
 end
 
